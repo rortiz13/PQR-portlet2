@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/tld
+END
+liferay-ui.tld
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/tld/liferay-ui.tld
+END
+aui.tld
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/tld/aui.tld
+END
+liferay-theme.tld
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/tld/liferay-theme.tld
+END
+liferay-portlet.tld
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/tld/liferay-portlet.tld
+END
+liferay-portlet-ext.tld
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/tld/liferay-portlet-ext.tld
+END
+liferay-security.tld
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/tld/liferay-security.tld
+END
+liferay-util.tld
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/tld/liferay-util.tld
+END

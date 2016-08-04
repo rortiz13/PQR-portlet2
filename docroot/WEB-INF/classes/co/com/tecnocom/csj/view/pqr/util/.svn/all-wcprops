@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util
+END
+LiferayUtil$ROLE.class
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/LiferayUtil$ROLE.class
+END
+FileUtil.class
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/FileUtil.class
+END
+DateUtil.class
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/DateUtil.class
+END
+LiferayUtil.class
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/LiferayUtil.class
+END
+ListUtil.class
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/ListUtil.class
+END
+MimeValidTypes.class
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/MimeValidTypes.class
+END
+ValidatorUtil$1.class
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/ValidatorUtil$1.class
+END
+ValidatorUtil$2.class
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/ValidatorUtil$2.class
+END
+ValidatorUtil$3.class
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/ValidatorUtil$3.class
+END
+ValidatorUtil.class
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/classes/co/com/tecnocom/csj/view/pqr/util/ValidatorUtil.class
+END

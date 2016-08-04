@@ -1,0 +1,119 @@
+<window apply="org.zkoss.bind.BindComposer" viewModel="@id('det') @init('co.com.tecnocom.csj.view.pqr.admin.PQRDetail')" validationMessages="@id('vmsgs')">
+	<div sclass="pqr_title">
+		<hlayout>
+			<label sclass="h2" value="@load(det.selectedPQR.pqrType)" />
+			<label sclass="h2" value=" - " />
+			<label sclass="h2" value="@load(det.selectedPQR.id)" />
+		</hlayout>
+	</div>
+
+	<vlayout sclass="user_data_container">
+		<hlayout sclass="user_data_container_info">
+			<vlayout>
+				<label sclass="detail_data_title" value="@load(det.selectedPQR.name)" />
+
+				<vlayout sclass="user_inner_data_container">
+					<hlayout>
+						<hlayout>
+							<label sclass="detail_data_title" value="@load(det.selectedPQR.documentType)" />
+							<label sclass="detail_data_title" value=" ${labels.document_type_label }" />
+						</hlayout>
+
+						<label value="@load(det.selectedPQR.documentNumber)" />
+					</hlayout>
+
+					<hlayout>
+						<label sclass="detail_data_title" value=" ${labels.telefono }:" />
+						<label value="@load(det.selectedPQR.phone)" />
+					</hlayout>
+
+					<hlayout>
+						<label sclass="detail_data_title" value=" ${labels.email }:" />
+						<label value="@load(det.selectedPQR.email)" />
+					</hlayout>
+
+					<hlayout>
+						<label sclass="detail_data_title" value=" ${labels.ciudad }:" />
+						<label value="@load(det.selectedPQR.city)" />
+					</hlayout>
+				</vlayout>
+
+			</vlayout>
+
+			<hlayout>
+				<label sclass="detail_data_title" value="${labels.request_date }:" />
+				<label value="@load(det.selectedPQR.submitted) @converter('formattedDate', format='yyyy/MM/dd hh:mma')" />
+			</hlayout>
+
+			<button visible="@load(not empty det.selectedPQR.filename)" sclass="buttonLink" label="${labels.archivo_adjunto }" onClick="@command('getFile')" />
+		</hlayout>
+
+		<div sclass="detail_comment_container">
+			<label value="@load(det.selectedPQR.originalComment)" />
+		</div>
+	</vlayout>
+
+	<vlayout sclass="admin_comments_container">
+		<label sclass="detail_data_title" value="${labels.comentarios_funcionarios }:" />
+
+		<vlayout children="@load(det.selectedPQR.records)" sclass="admin_comments_container_each">
+			<template name="children">
+				<vlayout sclass="inner_pqr_admin_comment">
+					<hlayout sclass="inner_pqr_admin_comment_top">
+						<image src="/images/finder/chat.png" />
+						<vlayout sclass="inner_pqr_admin_comment_top_inner">
+							<label sclass="h4" value="@load(each.liferayUserName)" />
+							<label sclass="h4" value="@load(each.updated) @converter('formattedDate', format='yyyy/MM/dd hh:mma')" />
+						</vlayout>
+
+						<image src="/images/finder/ok.png" />
+						<label sclass="h4" value="${labels.pqr_current_status }" />
+						<label value="@load(each.statusName)" />
+					</hlayout>
+					<div sclass="inner_pqr_admin_comment_bottom">
+						<label value="@load(each.comment)" />
+					</div>
+				</vlayout>
+			</template>
+		</vlayout>
+	</vlayout>
+
+	<vlayout sclass="new_comment_container">
+		<textbox id="ncaa" sclass="new_comment_area"
+			value="@load(det.newComment) @save(det.newComment, before='update') @validator(det.validator.requiredPQRDetailValidator)" rows="4"
+			disabled="@load(det.editable)" />
+		<hlayout sclass="select_container">
+			<hlayout sclass="responsible_container">
+				<label value="${labels.responsable }" />
+				<listbox id="ra" mold="select" model="@load(det.validResponsibleUsers)"
+					selectedItem="@load(det.selectedUser) @save(det.selectedUser, before='update') @validator(det.validator.requiredPQRDetailValidator)"
+					disabled="@load(det.editable)">
+					<template name="model">
+						<listitem>
+							<listcell label="${each.fullName }" />
+							<listcell label="hola" />
+							<listcell label="${each.jobTitle }" />
+							<listcell visible="${not empty each.organizations}" label="${each.organizations[0] }" />
+						</listitem>
+					</template>
+				</listbox>
+			</hlayout>
+
+			<hlayout sclass="status_container">
+				<label value="${labels.estado }" />
+				<listbox mold="select" model="@load(det.validStatuses)" selectedItem="@bind(det.selectedStatus)" disabled="@load(det.editable)">
+					<template name="model">
+						<listitem label="${each.name }" />
+					</template>
+				</listbox>
+			</hlayout>
+		</hlayout>
+	</vlayout>
+
+	<hlayout sclass="button_container">
+		<label sclass="pqr_error" visible="@bind(not empty vmsgs[ncaa] or not empty vmsgs[ra])" value="@bind(vmsgs[ncaa])" />
+		<button sclass="buttonLink" label="${labels.actualizar }" onClick="@command('update', component=self) @global-command('closePopup')"
+			disabled="@load(det.editable)" autodisable="self" />
+		<button sclass="buttonLink" label="${labels.cerrar }" onClick="@global-command('closePopup')" />
+	</hlayout>
+</window>

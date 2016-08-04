@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<library-property>
+		<name>org.zkoss.zk.portlet.PageRenderPatch.class</name>
+		<value>org.zkoss.zkplus.liferay.NonRootContextJQueryRenderPatch
+		</value>
+	</library-property>
+	<library-property>
+		<name>org.zkoss.zkplus.liferary.jQueryPatch</name>
+		<value>1500</value>
+	</library-property>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/pages/error/error.zul</location>
+	</error-page>
+	<session-config>
+		<device-type>ajax</device-type>
+		<timeout-message>Session timeout. Please reload the page.
+		</timeout-message>
+	</session-config>
+	<system-config>
+		<label-location>/WEB-INF/labels/messages.properties</label-location>
+		<max-upload-size>-1</max-upload-size>
+	</system-config>
+</zk>  

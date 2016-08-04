@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/repos/!svn/ver/6661/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF
+END
+portlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/portlet.xml
+END
+liferay-portlet.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/liferay-portlet.xml
+END
+liferay-plugin-package.properties
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/!svn/ver/6557/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/liferay-plugin-package.properties
+END
+zk.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/zk.xml
+END
+liferay-display.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/liferay-display.xml
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/!svn/ver/6261/ProyectoCSJ/trunk/PQR-portlet/docroot/WEB-INF/web.xml
+END

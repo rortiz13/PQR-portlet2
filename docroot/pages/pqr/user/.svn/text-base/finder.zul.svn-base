@@ -1,0 +1,34 @@
+<zk>
+	<window style="width: auto;" apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('co.com.tecnocom.csj.view.pqr.user.PQRFinder')">
+
+		<vlayout sclass="user_finder_container">
+			<label sclass="h4" value="${labels.finder_title }" />
+
+			<hlayout sclass="finder_input_container">
+				<label value="${labels.numero_radicacion }:" />
+				<textbox id="search_textbox" value="@save(vm.pqrId, before='findPQR') @load(vm.pqrId)" onOK="@command('findPQR', component=self)" />
+				<image sclass="search_button" src="/images/finder/search.png" onClick="@command('findPQR', component=search_textbox)" />
+			</hlayout>
+
+			<div visible="@load(vm.searched)" sclass="result_data_container">
+				<div visible="@load(vm.pqr eq null)">
+					<label value="${labels.pqr_not_found }" />
+				</div>
+
+				<vlayout sclass="comment_container" visible="@load(vm.pqr ne null)">
+					<hlayout>
+						<label sclass="h4" value="@load(vm.pqr.updated) @converter('formattedDate', format='yyyy/MM/dd hh:mma')" />
+						<image src="/images/finder/ok.png" />
+						<label sclass="h4" value="${labels.pqr_current_status }" />
+						<label value="@load(vm.pqr.statusName)" />
+					</hlayout>
+					<div>
+						<label visible="@load(vm.finalState)" value="@load(vm.pqr.comment)" />
+					</div>
+				</vlayout>
+			</div>
+
+		</vlayout>
+
+	</window>
+</zk>

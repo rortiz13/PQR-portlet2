@@ -1,0 +1,69 @@
+<zk>
+	<window sclass="pqr_container" style="width: auto;" apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('co.com.tecnocom.csj.view.pqr.admin.PQRAdmin')">
+
+		<div visible="@load(vm.authorized)">
+			<hlayout sclass="filter_container">
+				<vlayout>
+					<label sclass="h4" value="${labels.filtrar }" />
+					<hlayout sclass="type_filter_container">
+						<label value="${labels.tipo_solicitud }" />
+						<listbox mold="select" model="@load(vm.validTypes)" onSelect="@command('filterPQRList')" selectedItem="@bind(vm.selectedType)">
+							<template name="model">
+								<listitem label="${each.name }" />
+							</template>
+						</listbox>
+					</hlayout>
+				</vlayout>
+
+				<vlayout sclass="finder_container">
+					<label sclass="h4" value="${labels.buscar }" />
+					<hlayout sclass="id_filter_container">
+						<label value="${labels.numero_radicacion }" />
+						<textbox id="search_pqrid_textbox" value="@save(vm.pqrId, before='searchPQRId') @load(vm.pqrId)" onOK="@command('searchPQRId', component=self)" />
+						<image sclass="search_button" src="/images/finder/search.png" onClick="@command('searchPQRId', component=search_pqrid_textbox)" />
+					</hlayout>
+				</vlayout>
+			</hlayout>
+
+			<html sclass="pqr_title">
+				<![CDATA[ <h2>${labels.informacion_ciudadano }</h2>]]>
+			</html>
+
+			<vlayout sclass="pqr_panel">
+				<grid mold="paging" pageSize="5" sclass="admin_pqr_list" emptyMessage="${labels.no_pqrs }">
+					<columns>
+						<column label="" />
+					</columns>
+
+					<rows children="@load(vm.pqrs)">
+						<template name="children">
+							<row>
+								<hlayout>
+									<vlayout sclass="left_data_container">
+										<label sclass="h4" value="@load(each.name )" />
+										<label sclass="h4" value="@load(each.submitted ) @converter('formattedDate', format='yyyy/MM/dd hh:mma')" />
+										<label sclass="h4" value="@load(each.currentStatus )" />
+									</vlayout>
+									<vlayout sclass="comment_container">
+										<label value="@load(each.originalComment)" />
+										<button sclass="buttonLink" label="${labels.pqr_request_detail }"
+											onClick="@global-command('loadPopupData', selectedPQR=each) @command('openPopup')" />
+									</vlayout>
+								</hlayout>
+							</row>
+						</template>
+					</rows>
+				</grid>
+			</vlayout>
+		</div>
+
+		<div visible="@load(!vm.authorized)">
+			<label value="${labels.unauthorized }" sclass="portlet-msg-error" />
+		</div>
+
+		<window id="window_popup" visible="@load(vm.popupDetailVisible)" mode="modal" position="center">
+			<include src="/pages/pqr/admin/pqr_detail.zul" />
+		</window>
+	</window>
+</zk>

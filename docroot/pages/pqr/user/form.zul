@@ -1,0 +1,176 @@
+<zk>
+	<window sclass="pqr_container" style="width: auto;"
+		apply="org.zkoss.bind.BindComposer"
+		viewModel="@id('vm') @init('co.com.tecnocom.csj.view.pqr.user.PQR')"
+		validationMessages="@id('vmsgs')">
+		
+		<div visible="@load(vm.portletConfigured)">
+
+			<div visible="@load(vm.formVisible)">
+				<html sclass="pqr_title">
+					<![CDATA[ <h2>${labels.informacion_ciudadano }</h2>]]>
+				</html>
+	
+				<vlayout sclass="pqr_panel">
+					<hlayout>
+						<label sclass="pqr_left_column"
+							value="${labels.tipo_identificacion }*:" />
+						<listbox id="sdt" mold="select"
+							model="@load(vm.documentTypes)"
+							selectedItem="@save(vm.selectedDocumentType, before='send') @validator(vm.validator.requiredValidator)">
+							<template name="model">
+								<listitem label="${each.name}" />
+							</template>
+						</listbox>
+						<label sclass="pqr_error" value="@bind(vmsgs[sdt])" />
+					</hlayout>
+	
+					<hlayout>
+						<label value="${labels.numero_identificacion }*:" />
+						<textbox id="ini"
+							value="@save(vm.id, before='send') @validator(vm.validator.requiredValidator)" />
+						<label sclass="pqr_error" value="@bind(vmsgs[ini])" />
+					</hlayout>
+	
+					<hlayout>
+						<label value="${labels.nombre_apellido }*:" />
+						<textbox id="ina"
+							value="@save(vm.name, before='send') @validator(vm.validator.requiredValidator)" />
+						<label sclass="pqr_error" value="@bind(vmsgs[ina])" />
+					</hlayout>
+	
+					<hlayout>
+						<label value="${labels.telefono }*:" />
+						<textbox id="ip"
+							value="@save(vm.phone, before='send') @validator(vm.validator.requiredValidator)" />
+						<label sclass="pqr_error" value="@bind(vmsgs[ip])" />
+					</hlayout>
+	
+					<hlayout>
+						<label value="${labels.email }*:" />
+						<textbox id="ie"
+							value="@save(vm.email, before='send') @validator(vm.validator.emailValidator)" />
+						<label sclass="pqr_error" value="@bind(vmsgs[ie])" />
+					</hlayout>
+	
+					<hlayout>
+						<label
+							value="${labels.direccion_correspondencia }*:" />
+						<textbox id="idc"
+							value="@save(vm.address, before='send') @validator(vm.validator.requiredValidator)" />
+						<label sclass="pqr_error" value="@bind(vmsgs[idc])" />
+					</hlayout>
+				</vlayout>
+	
+				<html sclass="pqr_title">
+					<![CDATA[ <h2>${labels.pqr_data }</h2>]]>
+				</html>
+	
+				<vlayout sclass="pqr_panel">
+					<hlayout>
+						<label value="${labels.departamento }:" />
+						<listbox id="idep" mold="select"
+							model="@load(vm.departments)"
+							selectedItem="@save(vm.selectedDepartment)"
+							onSelect="@command('onChangeDepartment')">
+							<template name="model">
+								<listitem label="${each.name}" />
+							</template>
+						</listbox>
+					</hlayout>
+	
+					<hlayout>
+						<label value="${labels.ciudad }*:" />
+						<listbox id="icit" mold="select"
+							model="@load(vm.cities)"
+							selectedItem="@save(vm.selectedCity, before='send') @validator(vm.validator.requiredValidator)">
+							<template name="model">
+								<listitem label="${each.name}" />
+							</template>
+						</listbox>
+						<label sclass="pqr_error" value="@bind(vmsgs[icit])" />
+					</hlayout>
+	
+					<hlayout>
+						<label value="${labels.tipo_solicitud }*:" />
+						<listbox id="ipqr" mold="select"
+							model="@load(vm.pqrTypes)"
+							selectedItem="@save(vm.selectedPQRType, before='send') @validator(vm.validator.requiredValidator)">
+							<template name="model">
+								<listitem label="${each.name}" />
+							</template>
+						</listbox>
+						<label sclass="pqr_error" value="@bind(vmsgs[ipqr])" />
+					</hlayout>
+				</vlayout>
+				
+				<hlayout sclass="pqr_comment_panel">
+					<label value="${labels.comentarios}*:" />
+					<vlayout>
+						<textbox id="icomm"
+							value="@save(vm.comment, before='send') @validator(vm.validator.requiredValidator)"
+							rows="6" />
+						<label sclass="pqr_error" value="@bind(vmsgs[icomm])" />
+					</vlayout>
+				</hlayout>
+	
+	
+				<vlayout>
+					<hlayout sclass="pqr_selected_file">
+						<image src="/images/form/clic.png" />
+						<html sclass="pqr_title">
+							<![CDATA[ <h4>${labels.adjuntos }: </h4>]]>
+						</html>
+						<label sclass="pqr_selected_file" value="@load(vm.selectedFileName)" />
+					</hlayout>
+					<hlayout sclass="pqr_upload_file_container">
+						<button id="bupl" upload="true" sclass="buttonLink pqr_buttonLink"
+							autodisable="+sendButton, self"
+							onUpload="@command('upload', fileUploadEvent=event, component=self, submitButton=sendButton)"
+							label="${labels.seleccionar_archivo }" />
+						<label value="${labels.upload_information }" />
+					</hlayout>
+				</vlayout>
+				
+				<label value="${labels.captcha_label }" />
+	
+				<vlayout sclass="captcha_container">
+					<bw.captcha id="cap1">
+						<attribute name="onCreate"><![CDATA[
+						    cap1.setBgColor(0xCCCCCC);
+						    cap1.setFontColor(0x343434);
+						    cap1.setFontBgColor(0xAFADAD);
+						    cap1.setLineColor(0xBF1E2E);
+						]]></attribute>
+					</bw.captcha>
+					<label value="${labels.captcha_text }" />
+					<hlayout>
+						<textbox id="tbcapt" />
+						<image src="/images/form/actualizar.png" onClick="@command('changeCaptcha', captcha=cap1)" />
+					</hlayout>
+				</vlayout>
+	
+				<vlayout sclass="pqr_sendButton">
+					<button id="sendButton" label="${labels.enviar }"
+						sclass="buttonLink"
+						onClick="@command('send', captchaTextBox=tbcapt, captcha=cap1)"
+						autodisable="self" />
+					<label sclass="pqr_error" value="@bind(not empty vmsgs[sdt] or not empty vmsgs[ini] or not empty vmsgs[ina] or not empty vmsgs[ip] or not empty vmsgs[ie] or not empty vmsgs[idc] or not empty vmsgs[icit] or not empty vmsgs[ipqr] or not empty vmsgs[icomm]?'Se ha encontrado un error, por favor revise los campos del formulario':'')" />
+				</vlayout>
+				
+				<label sclass="pqr_email_information" value="${labels.pqr_email_information }" />
+			</div>
+	
+	
+			<div visible="@load(!vm.formVisible)">
+				<label value="@load(vm.successMessage)" />
+			</div>
+		
+		</div>
+		
+		<div visible="@load(!vm.portletConfigured)">
+			<label value="${labels.no_email }" sclass="pqr_error" />
+		</div>
+
+	</window>
+</zk>

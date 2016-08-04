@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	version="2.0">
+	<portlet>
+		<portlet-name>PQR_Form</portlet-name>
+		<display-name>Formulario de PQR</display-name>
+		<portlet-class>co.com.tecnocom.csj.view.pqr.portlet.PQRPortlet</portlet-class>
+		<init-param>
+			<name>edit-template</name>
+			<value>/pages/pqr/user/edit_form.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+			<portlet-mode>EDIT</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Formulario de PQR</title>
+			<short-title>Formulario de PQR</short-title>
+			<keywords>Formulario de PQR</keywords>
+		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>zk_page</name>
+				<value>/pages/pqr/user/form.zul</value>
+			</preference>
+		</portlet-preferences>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>PQR_Finder</portlet-name>
+		<display-name>Buscador de PQRs</display-name>
+		<portlet-class>org.zkoss.zk.ui.http.DHtmlLayoutPortlet</portlet-class>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Buscador de PQRs</title>
+			<short-title>Buscador de PQRs</short-title>
+			<keywords>Buscador de PQRs</keywords>
+		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>zk_page</name>
+				<value>/pages/pqr/user/finder.zul</value>
+			</preference>
+		</portlet-preferences>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>PQR_Admin</portlet-name>
+		<display-name>Administrador de PQRs</display-name>
+		<portlet-class>org.zkoss.zk.ui.http.DHtmlLayoutPortlet</portlet-class>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Administrador de PQRs</title>
+			<short-title>Administrador de PQRs</short-title>
+			<keywords>Administrador de PQRs</keywords>
+		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>zk_page</name>
+				<value>/pages/pqr/admin/pqr_list.zul</value>
+			</preference>
+		</portlet-preferences>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+</portlet-app>
